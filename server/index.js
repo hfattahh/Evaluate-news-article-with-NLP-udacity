@@ -7,8 +7,6 @@ const aylien = require("aylien_textapi");
 const textapi = new aylien({
     application_id: process.env.API_ID,
     application_key: process.env.API_KEY,
-    // application_id: '2b81f139',
-    // application_key: '66ad381628d44ff00ac2f5d53e4269ef',
   });
   console.log("envAPI_kEY = " + process.env.API_KEY);
 
@@ -19,7 +17,6 @@ const app = express();
 app.use(express.static('dist'));
 // console.log(__dirname); // to print directory name
 
-// i do not Know why using that in course
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('src/client/views/index.html'))
@@ -41,9 +38,18 @@ const addData = (req, res)=>{
         mode: 'article' 
         }, (error, response)=> {
         if (error === null) {
-            console.log(response);
-            res.send(nlpData);
+            // console.log(response);
+            res.send(response);
         } else{console.log('hahahahahaa!')}}
     );
         
 }
+/* // was for test only
+textapi.sentiment({
+    url: 'https://www.imdb.com/title/tt7286456/',
+    mode: 'article' 
+    }, (error, response)=> {
+    if (error === null) {
+        console.log(response);
+    } else{console.log('hahahahahaa!')}}
+);*/
