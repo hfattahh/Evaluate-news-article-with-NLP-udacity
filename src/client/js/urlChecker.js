@@ -4,7 +4,7 @@ const validURL = (str)=>{
     let regex = new RegExp(expression);
     if (!str.match(regex)) {	
       // console.log("InValid URL");
-      alert("Please enter a valid URL.");
+      // alert("Please enter a valid URL.");
       return false;
     }
     else {
@@ -12,8 +12,5 @@ const validURL = (str)=>{
       return true;
     }
 }
-
-// as a jest test result was "TypeError: validURL is not a function" so i tries make it using a usual funcion synatcs
-
 export { validURL }
 
